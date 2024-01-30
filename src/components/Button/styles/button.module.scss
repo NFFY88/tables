@@ -1,0 +1,103 @@
+@import '../../../styles/mixins.scss';
+
+// Base style for all buttons
+.base {
+  cursor: pointer;
+  border: none;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+// <Button>
+.button {
+  transition: background-color var(--transition-duration-medius);
+  background-color: var(--color-button-main);
+  padding: rem(4px) rem(16px);
+  color: var(--color-button-text);
+  border-radius: rem(2px);
+  min-height: rem(24px);
+
+  &:hover:not([disabled]) {
+    background-color: var(--color-button-main-hover);
+  }
+
+  &:active:not([disabled]) {
+    background-color: var(--color-button-main-active);
+  }
+
+  &[disabled] {
+    background-color: var(--color-button-main-disabled);
+  }
+
+  // Sizes
+  &--lg {
+    padding: rem(14px);
+    border-radius: rem(4px);
+  }
+
+  &--fullwidth {
+    display: block;
+    width: 100%;
+  }
+}
+
+// <DeleteButton>
+.delete {
+  background-color: transparent;
+  padding: 0;
+  display: block;
+  width: rem(20px);
+  height: rem(20px);
+  color: var(--color-deletebutton);
+  transition: color var(--transition-duration-medius);
+
+  &:hover:not([disabled]) {
+    color: var(--color-deletebutton-hover);
+  }
+
+  &:active:not([disabled]) {
+    color: var(--color-deletebutton-active);
+  }
+}
+
+// <TextButton>
+.textbtn {
+  background-color: transparent;
+  text-decoration: underline;
+  transition: color var(--transition-duration-medius);
+  padding: 0;
+
+  &--main {
+    color: var(--color-textbutton-main);
+
+    &:hover:not([disabled]) {
+      color: var(--color-textbutton-main-hover);
+    }
+
+    &:active:not([disabled]) {
+      color: var(--color-textbutton-main-active);
+    }
+
+    &[disabled] {
+      color: var(--color-textbutton-main-disabled);
+    }
+  }
+
+  &--red {
+    color: var(--color-textbutton-red);
+
+    &:hover:not([disabled]) {
+      color: var(--color-textbutton-red-hover);
+    }
+
+    &:active:not([disabled]) {
+      color: var(--color-textbutton-red-active);
+    }
+
+    &[disabled] {
+      color: var(--color-textbutton-red-disabled);
+    }
+  }
+}
