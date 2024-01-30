@@ -1,0 +1,28 @@
+:root {
+  // Base colors
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-bg: #e5e8ed;
+
+  // Text colors
+  --color-text-gray: #868a8d;
+  --color-text-black: #212229;
+
+  // Buttons colors
+  --color-button-main: #1193ff;
+  --color-button-main-hover: #7bc3fe;
+  --color-button-main-disabled: #c2cbd1;
+  --color-textbutton-main: #057ae3;
+  --color-textbutton-main-hover: #4f9bde;
+  --color-textbutton-main-disabled: #bdcddc;
+  --color-textbutton-red: #ae495a;
+  --color-textbutton-red-hover: #b29196;
+  --color-textbutton-red-disabled: #b29196;
+
+  // Font styles
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  // Transitions duration
+  --transition-duration-medius: 0.3s;
+}
