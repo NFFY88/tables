@@ -16,7 +16,7 @@
 
 // <Button>
 .button {
-  transition: background-color var(--transition-duration-medius);
+  transition: background-color var(--transition-duration-medium);
   background-color: var(--color-button-main);
   padding: rem(4px) rem(16px);
   color: var(--color-button-text);
@@ -57,7 +57,7 @@
   width: rem(20px);
   height: rem(20px);
   color: var(--color-deletebutton);
-  transition: color var(--transition-duration-medius);
+  transition: color var(--transition-duration-medium);
 
   &:hover:not([disabled]),
   &:focus-visible:not([disabled]) {
@@ -73,7 +73,7 @@
 .textbtn {
   background-color: transparent;
   text-decoration: underline;
-  transition: color var(--transition-duration-medius);
+  transition: color var(--transition-duration-medium);
   padding: 0;
 
   &--main {
