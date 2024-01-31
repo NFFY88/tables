@@ -2,16 +2,27 @@
 
 .form {
   padding: rem(20px) rem(16px);
-  max-width: rem(280px);
   background-color: var(--color-white);
   border-radius: rem(4px);
   box-shadow: var(--shadow-form);
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: rem(16px);
 
   &__submit {
     margin-top: rem(4px);
     text-transform: uppercase;
+  }
+
+  &--col1 {
+    max-width: rem(280px);
+    grid-template-columns: 1fr;
+  }
+
+  &--col2 {
+    grid-template-columns: 1fr 1fr;
+
+    .form__submit {
+      grid-column: span 2;
+    }
   }
 }
