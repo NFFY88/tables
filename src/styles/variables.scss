@@ -32,6 +32,7 @@
   --color-input-border: #e6ecef;
   --color-input-border-hover: #7bc3fe;
   --color-input-border-focus: #0f79d0;
+  --color-select-indicator: #6f7b8d;
 
   // Table colors
   --color-table-bg: var(--color-white);
@@ -44,8 +45,9 @@
   --font-weight-bold: 700;
 
   // Transitions duration
-  --transition-duration-medius: 0.3s;
+  --transition-duration-medium: 0.3s;
 
   // Shadows
   --shadow-form: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  --shadow-select-menu: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
 }
