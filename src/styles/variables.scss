@@ -1,23 +1,43 @@
 :root {
   // Base colors
   --color-white: #ffffff;
+  --color-white-50: rgba(255, 255, 255, 0.5);
   --color-black: #000000;
   --color-bg: #e5e8ed;
+  --color-red: #ae495a;
 
   // Text colors
   --color-text-gray: #868a8d;
   --color-text-black: #212229;
 
   // Buttons colors
+  --color-button-text: var(--color-white);
   --color-button-main: #1193ff;
   --color-button-main-hover: #7bc3fe;
+  --color-button-main-active: #0f79d0;
   --color-button-main-disabled: #c2cbd1;
   --color-textbutton-main: #057ae3;
   --color-textbutton-main-hover: #4f9bde;
+  --color-textbutton-main-active: #0265bc;
   --color-textbutton-main-disabled: #bdcddc;
-  --color-textbutton-red: #ae495a;
+  --color-textbutton-red: var(--color-red);
   --color-textbutton-red-hover: #b29196;
+  --color-textbutton-red-active: #af2d43;
   --color-textbutton-red-disabled: #b29196;
+  --color-deletebutton: #eb5e58;
+  --color-deletebutton-hover: #e8a09e;
+  --color-deletebutton-active: #e83c36;
+
+  // Inputs, selects colors
+  --color-input-border: #e6ecef;
+  --color-input-border-hover: #7bc3fe;
+  --color-input-border-focus: #0f79d0;
+
+  // Table colors
+  --color-table-bg: var(--color-white);
+  --color-table-border: #ebebeb;
+  --color-table-head: #0a508b;
+  --color-table-text: var(--color-text-gray);
 
   // Font styles
   --font-weight-regular: 400;
@@ -25,4 +45,7 @@
 
   // Transitions duration
   --transition-duration-medius: 0.3s;
+
+  // Shadows
+  --shadow-form: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
