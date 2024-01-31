@@ -1,9 +1,7 @@
+import classNames from 'classnames'
 import React from 'react'
 
-import classNames from 'classnames'
-
 import { Button, DeleteButton, TextButton } from '@/components/Button'
-
 import { IRowData } from '@/interfaces'
 
 import style from './styles/table.module.scss'

@@ -1,10 +1,9 @@
-import React from 'react'
-
 import classNames from 'classnames'
+import React from 'react'
 
 import style from './styles/button.module.scss'
 
-interface IDeleteButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+type IDeleteButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const DeleteButton = ({ className = '', ...props }: IDeleteButtonProps): React.ReactElement => {
   const classes = classNames(style.base, style.delete, className)

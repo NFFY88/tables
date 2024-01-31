@@ -8,6 +8,10 @@
   &[disabled] {
     cursor: not-allowed;
   }
+
+  &:focus-visible {
+    outline-color: var(--color-button-main);
+  }
 }
 
 // <Button>
@@ -19,7 +23,8 @@
   border-radius: rem(2px);
   min-height: rem(24px);
 
-  &:hover:not([disabled]) {
+  &:hover:not([disabled]),
+  &:focus-visible:not([disabled]) {
     background-color: var(--color-button-main-hover);
   }
 
@@ -35,6 +40,7 @@
   &--lg {
     padding: rem(14px);
     border-radius: rem(4px);
+    font-weight: var(--font-weight-bold);
   }
 
   &--fullwidth {
@@ -53,7 +59,8 @@
   color: var(--color-deletebutton);
   transition: color var(--transition-duration-medius);
 
-  &:hover:not([disabled]) {
+  &:hover:not([disabled]),
+  &:focus-visible:not([disabled]) {
     color: var(--color-deletebutton-hover);
   }
 
@@ -72,7 +79,8 @@
   &--main {
     color: var(--color-textbutton-main);
 
-    &:hover:not([disabled]) {
+    &:hover:not([disabled]),
+    &:focus-visible:not([disabled]) {
       color: var(--color-textbutton-main-hover);
     }
 
@@ -88,7 +96,8 @@
   &--red {
     color: var(--color-textbutton-red);
 
-    &:hover:not([disabled]) {
+    &:hover:not([disabled]),
+    &:focus-visible:not([disabled]) {
       color: var(--color-textbutton-red-hover);
     }
 

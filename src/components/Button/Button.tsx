@@ -1,6 +1,5 @@
-import React, { PropsWithChildren } from 'react'
-
 import classNames from 'classnames'
+import React, { PropsWithChildren } from 'react'
 
 import style from './styles/button.module.scss'
 
@@ -24,7 +23,7 @@ const Button = ({
   })
 
   return (
-    <button {...props} type={type} className={classes} >
+    <button {...props} type={type} className={classes}>
       {children}
     </button>
   )
