@@ -3,15 +3,15 @@ import React from 'react'
 
 import style from './styles/error_text.module.scss'
 
-interface IErrorTextProps {
+interface IFieldErrorProps {
   error: string
   className?: string
 }
 
-const ErrorText = ({ error, className }: IErrorTextProps): React.ReactElement => {
+const FieldError = ({ error, className }: IFieldErrorProps): React.ReactElement => {
   const classes = classNames(style.error, className)
 
   return <span className={classes}>{error}</span>
 }
 
-export default ErrorText
+export default FieldError
