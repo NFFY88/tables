@@ -21,3 +21,10 @@ export const validationSchema = z.object({
     value: z.string(),
   }),
 })
+
+export const defaultFormValues = {
+  name: undefined,
+  surname: undefined,
+  age: undefined,
+  city: null,
+}

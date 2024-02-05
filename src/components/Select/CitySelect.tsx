@@ -2,17 +2,13 @@ import React, { forwardRef } from 'react'
 import { GroupBase } from 'react-select'
 import SelectInstance from 'react-select/dist/declarations/src/Select'
 
+import { CITIES_LIST } from './const'
 import { ISelectProps } from './interfaces'
 import Select from './Select'
 
 const citySelectProps = {
   placeholder: 'City',
-  options: [
-    { label: 'Riga', value: 'Riga' },
-    { label: 'Daugavpils', value: 'Daugavpils' },
-    { label: 'Jūrmala', value: 'Jūrmala' },
-    { label: 'Ventspils', value: 'Ventspils' },
-  ],
+  options: CITIES_LIST,
 }
 
 const CitySelect = forwardRef<SelectInstance<any, boolean, GroupBase<any>>, ISelectProps>(

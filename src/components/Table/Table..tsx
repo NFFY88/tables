@@ -10,7 +10,7 @@ interface ITableProps {
   id: number
   isDeletable?: boolean
   rows: IRowData[]
-  onChangeField: (row: IRowData) => void
+  onChangeField: (tableId: number, row: IRowData) => void
   onDeleteField: (tableId: number, rowId: string) => void
   onCopyClick: (rows: IRowData[]) => void
   onDeleteClick: (tableId: number) => void
@@ -37,6 +37,11 @@ const Table = ({
     onDeleteField(id, rowId)
   }
 
+  const handleChangeFields = (row: IRowData) => {
+    console.log('id table', id)
+    onChangeField(id, row)
+  }
+
   return (
     <div className={style.wrap}>
       <div className={style.head}>
@@ -60,7 +65,7 @@ const Table = ({
             return (
               <Row
                 key={el.id}
-                onChangeField={onChangeField}
+                onChangeField={handleChangeFields}
                 onDeleteField={handleDeleteField}
                 data={el}
               />

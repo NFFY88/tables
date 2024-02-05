@@ -15,7 +15,12 @@ const Select = forwardRef<SelectInstance<any, boolean, GroupBase<any>>, ISelectP
 
     return (
       <div className={classes}>
-        <SelectComponent {...props} styles={customSelectStyles} ref={ref} />
+        <SelectComponent
+          {...props}
+          menuPortalTarget={document.body}
+          styles={customSelectStyles}
+          ref={ref}
+        />
         {hasError ? <FieldError error={error} /> : null}
       </div>
     )

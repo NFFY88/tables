@@ -69,6 +69,10 @@ const customSelectStyles: StylesConfig<any, boolean> = {
       color: 'var(--color-text-black)',
     },
   }),
+  menuPortal: (styles) => ({
+    ...styles,
+    zIndex: 10,
+  }),
 }
 
 export default customSelectStyles

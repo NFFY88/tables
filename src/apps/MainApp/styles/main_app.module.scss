@@ -11,3 +11,9 @@
   align-items: flex-start;
   gap: rem(10px);
 }
+
+.form {
+  padding: rem(20px) rem(16px);
+  border-radius: rem(4px);
+  box-shadow: var(--shadow-form);
+}

@@ -4,19 +4,14 @@ import { useForm } from 'react-hook-form'
 
 import Container from '@/components/Container'
 import { MainForm } from '@/components/Form'
-import { validationSchema } from '@/components/Form/const'
+import { defaultFormValues, validationSchema } from '@/components/Form/const'
+import { EditRowModal } from '@/components/Modal'
 import { Table } from '@/components/Table'
 import { getNextTableId } from '@/helpers'
+import { useModal } from '@/hooks'
 import { IRowData, ITable } from '@/interfaces'
 
 import style from './styles/main_app.module.scss'
-
-const defaultFormValues = {
-  name: undefined,
-  surname: undefined,
-  age: undefined,
-  city: null,
-}
 
 export interface IFormData {
   name: string
@@ -25,11 +20,23 @@ export interface IFormData {
   city: { label: string; value: string } | null
 }
 
+interface EditableRow {
+  tableId: number
+  rowData: IRowData
+}
+
 const MAIN_TABLE_ID = 0
 
 const MainApp = (): React.ReactElement => {
   const [tables, setTables] = useState<Map<number, ITable>>(new Map())
-  console.log('tables', tables)
+  const [editedRow, setEditedRow] = useState<EditableRow>()
+
+  const { isOpen, handleOpenModal, handleCloseModal } = useModal()
+
+  const closeEditModal = (): void => {
+    handleCloseModal()
+    setTimeout(() => setEditedRow(undefined), 200)
+  }
 
   const {
     register,
@@ -43,7 +50,7 @@ const MainApp = (): React.ReactElement => {
     mode: 'onChange',
   })
 
-  const onSubmit = ({ city, ...params }: IFormData) => {
+  const onSubmit = ({ city, ...params }: IFormData): void => {
     if (city !== null) {
       const id = crypto.randomUUID()
       const newValue: IRowData = { id, city: city.value, ...params }
@@ -69,8 +76,9 @@ const MainApp = (): React.ReactElement => {
     setTables(newTables)
   }
 
-  const handleChangeField = (row: IRowData) => {
-    console.log('change', row)
+  const handleChangeField = (tableId: number, rowData: IRowData) => {
+    setEditedRow({ tableId, rowData })
+    handleOpenModal()
   }
 
   const handleDeleteField = (tableId: number, rowId: string) => {
@@ -121,6 +129,7 @@ const MainApp = (): React.ReactElement => {
           onSubmit={handleSubmit(onSubmit)}
           errors={errors}
           disabledSubmit={!isDirty || !isValid}
+          className={style.form}
         />
         {/* <Form
           columns={2}
@@ -133,6 +142,18 @@ const MainApp = (): React.ReactElement => {
       </div>
 
       {TablesList()}
+
+      {editedRow !== undefined ? (
+        <EditRowModal
+          onClose={closeEditModal}
+          handleClose={closeEditModal}
+          isOpen={isOpen}
+          tables={tables}
+          setTables={setTables}
+          tableId={editedRow.tableId}
+          rowData={editedRow.rowData}
+        />
+      ) : null}
     </Container>
   )
 }

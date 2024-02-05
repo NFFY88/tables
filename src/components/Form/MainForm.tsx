@@ -15,14 +15,25 @@ interface IMainFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   register: UseFormRegister<any>
   errors: FieldErrors<IFormData>
   disabledSubmit?: boolean
+  className?: string
+  submitButtonText?: string
 }
 
 const MainForm = forwardRef<HTMLFormElement, IMainFormProps>(
   (
-    { columns = 1, control, register, errors, disabledSubmit, ...props }: IMainFormProps,
+    {
+      columns = 1,
+      control,
+      register,
+      errors,
+      disabledSubmit,
+      className,
+      submitButtonText = 'Add',
+      ...props
+    }: IMainFormProps,
     ref
   ): React.ReactElement => {
-    const classes = classNames(style.form, style[`form--col${columns}`])
+    const classes = classNames(style.form, style[`form--col${columns}`], className)
 
     return (
       <form {...props} className={classes} ref={ref}>
@@ -63,7 +74,7 @@ const MainForm = forwardRef<HTMLFormElement, IMainFormProps>(
           size='lg'
           fullWidth
         >
-          Add
+          {submitButtonText}
         </Button>
       </form>
     )

@@ -37,6 +37,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
     'jsx-a11y/accessible-emoji': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',

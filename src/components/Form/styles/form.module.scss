@@ -1,10 +1,7 @@
 @import '../../../styles/mixins.scss';
 
 .form {
-  padding: rem(20px) rem(16px);
   background-color: var(--color-white);
-  border-radius: rem(4px);
-  box-shadow: var(--shadow-form);
   display: grid;
   gap: rem(16px);
 
