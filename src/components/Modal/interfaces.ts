@@ -1,4 +1,4 @@
-export interface IBaseModalProps {
+export interface IModalProps {
   isOpen: boolean
   onClose?: () => void
 }

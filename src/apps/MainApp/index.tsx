@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import Container from '@/components/Container'
-import { MainForm } from '@/components/Form'
+import { Form, SlavedForm } from '@/components/Form'
 import { defaultFormValues, validationSchema } from '@/components/Form/const'
 import { EditRowModal } from '@/components/Modal'
 import { Table } from '@/components/Table'
@@ -35,6 +35,8 @@ const MainApp = (): React.ReactElement => {
 
   const closeEditModal = (): void => {
     handleCloseModal()
+
+    // clear state after closing animation
     setTimeout(() => setEditedRow(undefined), 200)
   }
 
@@ -43,12 +45,15 @@ const MainApp = (): React.ReactElement => {
     control,
     reset,
     handleSubmit,
+    watch,
     formState: { errors, isDirty, isValid },
   } = useForm<IFormData>({
     defaultValues: defaultFormValues,
     resolver: zodResolver(validationSchema),
     mode: 'onChange',
   })
+
+  const slavedFormDefaultValues = watch()
 
   const onSubmit = ({ city, ...params }: IFormData): void => {
     if (city !== null) {
@@ -123,7 +128,7 @@ const MainApp = (): React.ReactElement => {
   return (
     <Container className={style.container}>
       <div className={style.formswrap}>
-        <MainForm
+        <Form
           control={control}
           register={register}
           onSubmit={handleSubmit(onSubmit)}
@@ -131,21 +136,18 @@ const MainApp = (): React.ReactElement => {
           disabledSubmit={!isDirty || !isValid}
           className={style.form}
         />
-        {/* <Form
-          columns={2}
-          control={control}
-          register={register}
-          onSubmit={handleSubmit(onSubmit)}
-          errors={errors}
-          disabledSubmit={!isDirty || !isValid}
-        /> */}
+
+        <SlavedForm
+          onSubmit={onSubmit}
+          className={style.form}
+          defaultValues={slavedFormDefaultValues}
+        />
       </div>
 
       {TablesList()}
 
       {editedRow !== undefined ? (
         <EditRowModal
-          onClose={closeEditModal}
           handleClose={closeEditModal}
           isOpen={isOpen}
           tables={tables}

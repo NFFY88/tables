@@ -38,7 +38,6 @@ const Table = ({
   }
 
   const handleChangeFields = (row: IRowData) => {
-    console.log('id table', id)
     onChangeField(id, row)
   }
 

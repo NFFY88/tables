@@ -21,7 +21,7 @@
   box-shadow: var(--shadow-form);
   background-color: white;
   border-radius: rem(4px);
-  padding: rem(20px) rem(16px);
+  padding: 0;
   max-height: 80dvh;
   max-width: 80dvw;
   border: none;
@@ -43,8 +43,39 @@
     animation: none;
   }
 
-  & .modal__container {
+  &__container {
+    padding: rem(20px) rem(16px);
     border: none;
+    position: relative;
+  }
+
+  &__close {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    right: rem(5px);
+    top: rem(5px);
+    cursor: pointer;
+    color: var(--color-button-main);
+    transition: color var(--transition-duration-medium);
+
+    &:hover {
+      color: var(--color-button-main-hover);
+    }
+
+    &:active {
+      color: var(--color-button-main-active);
+    }
+
+    > svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
   }
 }
 

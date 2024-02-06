@@ -9,7 +9,7 @@ import Input from '../Input'
 import { CitySelect } from '../Select'
 import style from './styles/form.module.scss'
 
-interface IMainFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
+interface IFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   columns?: 1 | 2
   control: Control<any, any>
   register: UseFormRegister<any>
@@ -19,7 +19,7 @@ interface IMainFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   submitButtonText?: string
 }
 
-const MainForm = forwardRef<HTMLFormElement, IMainFormProps>(
+const Form = forwardRef<HTMLFormElement, IFormProps>(
   (
     {
       columns = 1,
@@ -30,7 +30,7 @@ const MainForm = forwardRef<HTMLFormElement, IMainFormProps>(
       className,
       submitButtonText = 'Add',
       ...props
-    }: IMainFormProps,
+    }: IFormProps,
     ref
   ): React.ReactElement => {
     const classes = classNames(style.form, style[`form--col${columns}`], className)
@@ -81,4 +81,4 @@ const MainForm = forwardRef<HTMLFormElement, IMainFormProps>(
   }
 )
 
-export default MainForm
+export default Form

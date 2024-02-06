@@ -5,13 +5,15 @@ import { useForm } from 'react-hook-form'
 import { IFormData } from '@/apps/MainApp'
 import { IRowData, ITable } from '@/interfaces'
 
-import { MainForm } from '../Form'
+import { Form } from '../Form'
 import { validationSchema } from '../Form/const'
 import { CITIES_LIST } from '../Select/const'
+import Title from '../Title'
 import BaseModal from './BaseModal'
-import { IBaseModalProps } from './interfaces'
+import { IModalProps } from './interfaces'
+import style from './styles/modal.module.scss'
 
-interface IEditRowModalProps extends IBaseModalProps {
+interface IEditRowModalProps extends IModalProps {
   tables: Map<number, ITable>
   setTables: React.Dispatch<React.SetStateAction<Map<number, ITable>>>
   tableId: number
@@ -21,7 +23,6 @@ interface IEditRowModalProps extends IBaseModalProps {
 
 const EditRowModal = ({
   isOpen,
-  onClose,
   tables,
   setTables,
   tableId,
@@ -67,8 +68,11 @@ const EditRowModal = ({
   }
 
   return (
-    <BaseModal isOpen={isOpen} onClose={onClose}>
-      <MainForm
+    <BaseModal isOpen={isOpen} onClose={handleClose}>
+      <Title type='h2' className={style.modal__title}>
+        Edit row
+      </Title>
+      <Form
         control={control}
         register={register}
         onSubmit={handleSubmit(onSubmit)}

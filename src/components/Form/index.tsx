@@ -1,3 +1,4 @@
-import MainForm from './MainForm'
+import Form from './Form'
+import SlavedForm from './SlavedForm'
 
-export { MainForm }
+export { Form, SlavedForm }

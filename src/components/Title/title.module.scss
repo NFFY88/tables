@@ -5,24 +5,8 @@
 .h5,
 .h6 {
   word-break: break-word;
-  margin: 0 0 20px;
 }
 
-.h1 {
-  font-size: var(--head-size-h1);
-  font-weight: var(--font-weight-bold);
-}
-
-.h2 {
-  font-size: var(--head-size-h2);
-}
-
-.h3 {
-  font-size: var(--head-size-h3);
-  font-weight: 500;
-}
-
-.h4 {
-  font-size: var(--head-size-h4);
-  font-weight: 500;
+.no_indents {
+  margin: 0;
 }
