@@ -1,25 +1,25 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
+import { GroupBase } from 'react-select'
+import SelectInstance from 'react-select/dist/declarations/src/Select'
 
+import { CITIES_LIST } from './const'
 import { ISelectProps } from './interfaces'
 import Select from './Select'
 
 const citySelectProps = {
   placeholder: 'City',
-  options: [
-    { label: 'Riga', value: 'Riga' },
-    { label: 'Daugavpils', value: 'Daugavpils' },
-    { label: 'Jūrmala', value: 'Jūrmala' },
-    { label: 'Ventspils', value: 'Ventspils' },
-  ],
+  options: CITIES_LIST,
 }
 
-const CitySelect = ({ className, error, ...props }: ISelectProps): React.ReactElement => {
-  const selectProps = {
-    ...props,
-    ...citySelectProps,
+const CitySelect = forwardRef<SelectInstance<any, boolean, GroupBase<any>>, ISelectProps>(
+  ({ className, error, ...props }: ISelectProps, ref): React.ReactElement => {
+    const selectProps = {
+      ...props,
+      ...citySelectProps,
+    }
+
+    return <Select className={className} error={error} {...selectProps} ref={ref} />
   }
-
-  return <Select className={className} error={error} {...selectProps} />
-}
+)
 
 export default CitySelect

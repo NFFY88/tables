@@ -9,4 +9,40 @@ body {
   font-size: rem(12px);
   background-color: var(--color-bg);
   padding: rem(48px);
+
+  @media screen and (max-width: 700px) {
+    padding: rem(32px) rem(10px);
+  }
+}
+
+.scrolllock {
+  overflow: hidden;
+}
+
+.visually_hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+/**
+  * Remove Arrows/spinners on input
+  */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }

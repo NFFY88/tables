@@ -1,0 +1,102 @@
+@import '../../../styles/mixins.scss';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  animation: none;
+  border: none;
+  appearance: none;
+
+  &--closing {
+    display: none;
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  transform: translate(-50%);
+  box-shadow: var(--shadow-form);
+  background-color: white;
+  border-radius: rem(4px);
+  padding: 0;
+  max-height: 80dvh;
+  max-width: 80dvw;
+  border: none;
+  z-index: 2;
+
+  &[open] {
+    animation: show 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+    &.modal--closing {
+      animation: hide 150ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+  }
+
+  &::backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    animation: none;
+  }
+
+  &__container {
+    padding: rem(20px) rem(16px);
+    border: none;
+    position: relative;
+  }
+
+  &__close {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    right: rem(5px);
+    top: rem(5px);
+    cursor: pointer;
+    color: var(--color-button-main);
+    transition: color var(--transition-duration-medium);
+
+    &:hover {
+      color: var(--color-button-main-hover);
+    }
+
+    &:active {
+      color: var(--color-button-main-active);
+    }
+
+    > svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(min(100px, 5vh));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(min(100px, 5vh));
+  }
+}
