@@ -53,10 +53,10 @@ const customSelectStyles: StylesConfig<any, boolean> = {
     padding: '0 14px',
     transition: 'var(--transition-duration-medium)',
   }),
-  option: (styles, { isSelected }) => ({
+  option: (styles, { isSelected, isFocused }) => ({
     ...styles,
     padding: ' 14px 0',
-    color: isSelected ? 'var(--color-text-black)' : 'var(--color-text-gray)',
+    color: isSelected || isFocused ? 'var(--color-text-black)' : 'var(--color-text-gray)',
     fontWeight: isSelected ? 'var(--font-weight-bold)' : 'var(--font-weight-regular)',
     transition: 'var(--transition-duration-medium)',
     backgroundColor: 'var(--color-white)',

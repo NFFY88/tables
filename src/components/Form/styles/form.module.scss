@@ -24,3 +24,13 @@
     }
   }
 }
+
+@include iphone-14 {
+  .form--col2 {
+    grid-template-columns: 1fr;
+
+    .form__submit {
+      grid-column: 1;
+    }
+  }
+}

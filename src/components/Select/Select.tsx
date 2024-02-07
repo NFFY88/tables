@@ -18,6 +18,7 @@ const Select = forwardRef<SelectInstance<any, boolean, GroupBase<any>>, ISelectP
         <SelectComponent
           {...props}
           menuPortalTarget={document.body}
+          menuPlacement='auto'
           styles={customSelectStyles}
           ref={ref}
         />

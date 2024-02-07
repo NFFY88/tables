@@ -49,29 +49,31 @@ const Table = ({
         {isDeletable ? <DeleteButton onClick={handleDeleteTableClick} /> : null}
       </div>
 
-      <table className={style.table}>
-        <thead className={style.table__thead}>
-          <tr>
-            <th className={style.table__th}>Name</th>
-            <th className={style.table__th}>Surname</th>
-            <th className={style.table__th}>Age</th>
-            <th className={style.table__th}>City</th>
-            <th className={style.table__th}></th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((el) => {
-            return (
-              <Row
-                key={el.id}
-                onChangeField={handleChangeFields}
-                onDeleteField={handleDeleteField}
-                data={el}
-              />
-            )
-          })}
-        </tbody>
-      </table>
+      <div className={style.tablewrap}>
+        <table className={style.table}>
+          <thead className={style.table__thead}>
+            <tr>
+              <th className={style.table__th}>Name</th>
+              <th className={style.table__th}>Surname</th>
+              <th className={style.table__th}>Age</th>
+              <th className={style.table__th}>City</th>
+              <th className={style.table__th}></th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((el) => {
+              return (
+                <Row
+                  key={el.id}
+                  onChangeField={handleChangeFields}
+                  onDeleteField={handleDeleteField}
+                  data={el}
+                />
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

@@ -31,12 +31,14 @@ const Row = ({ data, onChangeField, onDeleteField }: IRowProps): React.ReactElem
       <td className={style.table__td}>{age}</td>
       <td className={style.table__td}>{city}</td>
       <td className={buttonsCellClasses}>
-        <TextButton theme='main' className={style.table__actionbtn} onClick={handleChangeRow}>
-          Edit
-        </TextButton>
-        <TextButton theme='red' className={style.table__actionbtn} onClick={handleDeleteRow}>
-          Delete
-        </TextButton>
+        <div className={style.table__buttons}>
+          <TextButton theme='main' onClick={handleChangeRow}>
+            Edit
+          </TextButton>
+          <TextButton theme='red' onClick={handleDeleteRow}>
+            Delete
+          </TextButton>
+        </div>
       </td>
     </tr>
   )
