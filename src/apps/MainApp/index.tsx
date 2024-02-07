@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import Container from '@/components/Container'
 import { Form, SlavedForm } from '@/components/Form'
 import { defaultFormValues, validationSchema } from '@/components/Form/const'
+import { IFormData } from '@/components/Form/interfaces'
 import { EditRowModal } from '@/components/Modal'
 import { Table } from '@/components/Table'
 import { getNextTableId } from '@/helpers'
@@ -12,13 +13,6 @@ import { useModal } from '@/hooks'
 import { IRowData, ITable } from '@/interfaces'
 
 import style from './styles/main_app.module.scss'
-
-export interface IFormData {
-  name: string
-  surname: string
-  age: number
-  city: { label: string; value: string } | null
-}
 
 interface EditableRow {
   tableId: number
