@@ -2,11 +2,10 @@ import classNames from 'classnames'
 import React, { forwardRef } from 'react'
 import { Control, Controller, FieldErrors, UseFormRegister } from 'react-hook-form'
 
-import { IFormData } from '@/apps/MainApp'
-
 import { Button } from '../Button'
 import Input from '../Input'
 import { CitySelect } from '../Select'
+import { IFormData } from './interfaces'
 import style from './styles/form.module.scss'
 
 interface IFormProps extends React.FormHTMLAttributes<HTMLFormElement> {

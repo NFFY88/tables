@@ -2,10 +2,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import React, { forwardRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { IFormData } from '@/apps/MainApp'
-
 import { defaultFormValues, validationSchema } from './const'
 import Form from './Form'
+import { IFormData } from './interfaces'
 
 interface IDefaultValues {
   name?: string

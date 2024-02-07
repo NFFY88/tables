@@ -2,11 +2,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-import { IFormData } from '@/apps/MainApp'
 import { IRowData, ITable } from '@/interfaces'
 
 import { Form } from '../Form'
 import { validationSchema } from '../Form/const'
+import { IFormData } from '../Form/interfaces'
 import { CITIES_LIST } from '../Select/const'
 import Title from '../Title'
 import BaseModal from './BaseModal'
