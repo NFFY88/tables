@@ -127,24 +127,22 @@ const MainApp = (): React.ReactElement => {
 
   return (
     <Container className={style.container}>
-      <div className={style.formswrap}>
-        <Form
-          control={control}
-          register={register}
-          onSubmit={handleSubmit(onSubmit)}
-          errors={errors}
-          disabledSubmit={!isDirty || !isValid}
-          className={style.form}
-        />
-
-        <SlavedForm
-          onSubmit={onSubmit}
-          className={style.form}
-          defaultValues={slavedFormDefaultValues}
-        />
-      </div>
+      <Form
+        control={control}
+        register={register}
+        onSubmit={handleSubmit(onSubmit)}
+        errors={errors}
+        disabledSubmit={!isDirty || !isValid}
+        className={style.form}
+      />
 
       {TablesList()}
+
+      <SlavedForm
+        onSubmit={onSubmit}
+        className={style.form}
+        defaultValues={slavedFormDefaultValues}
+      />
 
       {editedRow !== undefined ? (
         <EditRowModal

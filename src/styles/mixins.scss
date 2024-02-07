@@ -3,3 +3,15 @@
 @function rem($value) {
   @return #{math.div(math.div($value, $value * 0 + 1), 16)}rem;
 }
+
+@mixin tablet-sm {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin iphone-14 {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}

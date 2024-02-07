@@ -1,15 +1,13 @@
 @import '../../../styles/mixins.scss';
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: rem(48px);
-}
-
-.formswrap {
   display: flex;
-  align-items: flex-start;
-  gap: rem(10px);
+  flex-direction: column;
+  gap: rem(48px);
+
+  @include tablet-sm {
+    gap: rem(24px);
+  }
 }
 
 .form {

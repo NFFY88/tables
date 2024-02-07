@@ -1,11 +1,20 @@
 @import '../../../styles/mixins.scss';
 
+.wrap {
+  max-width: 100%;
+}
+
 .head {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: rem(22px);
   margin-bottom: rem(12px);
+}
+
+.tablewrap {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .table {
@@ -15,12 +24,18 @@
   border-top-left-radius: rem(2px);
   width: 100%;
   max-width: 100%;
+  min-width: rem(400px);
+
+  &__th,
+  &__td {
+    padding: rem(9px) rem(12px);
+  }
 
   &__th {
     background-color: var(--color-table-head);
     color: var(--color-white-50);
     text-align: start;
-    padding: rem(9px) rem(12px) rem(7px);
+
     font-weight: normal;
 
     &:first-of-type {
@@ -33,7 +48,6 @@
   }
 
   &__td {
-    padding: rem(9px) rem(12px);
     color: var(--color-table-text);
     border: rem(1px) solid var(--color-table-border);
     overflow-wrap: break-word;
@@ -48,10 +62,36 @@
     }
   }
 
-  &__actionbtn {
-    &:not(:last-of-type) {
-      display: inline-block;
-      margin-right: 53px;
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(53px);
+  }
+}
+
+@include tablet-sm {
+  .table {
+    &__th,
+    &__td {
+      padding: rem(6px) rem(8px);
+    }
+
+    &__td--buttons {
+      width: rem(128px);
+    }
+  }
+}
+
+@include iphone-14 {
+  .table {
+    &__td--buttons {
+      width: auto;
+    }
+
+    &__buttons {
+      flex-direction: column;
+      gap: rem(12px);
     }
   }
 }
